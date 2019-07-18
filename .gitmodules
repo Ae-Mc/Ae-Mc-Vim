@@ -12,13 +12,13 @@
 	url = https://github.com/klen/python-mode
 [submodule ".vim/bundle/vim-airline"]
 	path = .vim/bundle/vim-airline
-	url = https://github.com/vim-airline/vim-airline\n
+	url = https://github.com/vim-airline/vim-airline
 [submodule ".vim/bundle/vim-airline-themes"]
 	path = .vim/bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
 [submodule ".vim/bundle/vim-python-combined"]
 	path = .vim/bundle/vim-python-combined
-	url = https://github.com/mitsuhiko/vim-python-combined\n
+	url = https://github.com/mitsuhiko/vim-python-combined
 [submodule ".vim/bundle/vim-jinja"]
 	path = .vim/bundle/vim-jinja
 	url = https://github.com/mitsuhiko/vim-jinja
