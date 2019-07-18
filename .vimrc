@@ -46,6 +46,7 @@ set tabstop=2
 tab sball
 set switchbuf=useopen
 set incsearch
+set encoding=utf-8
 " Каталог с настройками SnipMate
 let g:snippets_dir = "~/.vim/vim-snippets/snippets"
 "
