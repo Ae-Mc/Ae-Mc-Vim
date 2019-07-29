@@ -57,6 +57,7 @@ set cursorline
 set number
 set novisualbell
 set hlsearch
+syntax on
 
 " Настройки Vim-Airline
 set laststatus=2
