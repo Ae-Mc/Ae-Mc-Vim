@@ -78,3 +78,7 @@ let NERDTreeIgnore=["\~$", "\.pyc$", "\.pyo$", "\.o"]
 au BufRead,BufNewFile *.py set noexpandtab
 au BufRead,BufNewFile *.py set tabstop=2
 au BufRead,BufNewFile *.py set shiftwidth=2
+
+" Шоткаты для компиляции C/C++ файлов
+autocmd filetype c map <F8> :w <CR> :!gcc % && ./a.out <CR>
+autocmd filetype cpp map <F8> :w <CR> :!g++ % && ./a.out <CR>
