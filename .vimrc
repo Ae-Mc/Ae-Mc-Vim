@@ -46,9 +46,33 @@ set tabstop=2
 tab sball
 set switchbuf=useopen
 set incsearch
-set encoding=utf-8
 " Каталог с настройками SnipMate
 let g:snippets_dir = "~/.vim/vim-snippets/snippets"
+
+"
+"____________=== Настройки python ===___________
+"
+
+" Отключаем втокомлит по коду
+let g:pymode_rope = 0
+let g:pymode_rope_competion = 0
+let g:pymode_rope_complet_on_dot = 0
+
+" Проверка кода
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+let g:pymode_lint_ignore = "W191"
+let g:pymode_lint_write = 1  " Проверка кода после сохранения
+
+" Подсветка синтаксиса
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+
+" Disable choose first function/method at autocomplete
+let g:jedi#popup_select_first = 0
+
 "
 "———————————=== Interface Settings===———————————
 "
@@ -57,7 +81,6 @@ set cursorline
 set number
 set novisualbell
 set hlsearch
-syntax on
 
 " Настройки Vim-Airline
 set laststatus=2
