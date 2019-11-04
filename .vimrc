@@ -43,6 +43,7 @@ filetype indent on
 set shiftwidth=2
 set noexpandtab
 set tabstop=2
+set softtabstop=2
 tab sball
 set switchbuf=useopen
 set incsearch
