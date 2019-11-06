@@ -47,6 +47,7 @@ set softtabstop=2
 tab sball
 set switchbuf=useopen
 set incsearch
+set encoding=utf-8
 " Каталог с настройками SnipMate
 let g:snippets_dir = "~/.vim/vim-snippets/snippets"
 
@@ -54,7 +55,7 @@ let g:snippets_dir = "~/.vim/vim-snippets/snippets"
 "____________=== Настройки python ===___________
 "
 
-" Отключаем втокомлит по коду
+" Отключаем автокомлит по коду
 let g:pymode_rope = 0
 let g:pymode_rope_competion = 0
 let g:pymode_rope_complet_on_dot = 0
@@ -82,6 +83,7 @@ set cursorline
 set number
 set novisualbell
 set hlsearch
+syntax on
 
 " Настройки Vim-Airline
 set laststatus=2
@@ -99,10 +101,9 @@ map <F3> :NERDTreeToggle<CR>
 " Игнорируем файлы с расширениями
 let NERDTreeIgnore=["\~$", "\.pyc$", "\.pyo$", "\.o"]
 
-au BufRead,BufNewFile *.py set noexpandtab
-au BufRead,BufNewFile *.py set tabstop=2
-au BufRead,BufNewFile *.py set shiftwidth=2
-
 " Шоткаты для компиляции C/C++ файлов
 autocmd filetype c map <F8> :w <CR> :!gcc % && ./a.out <CR>
 autocmd filetype cpp map <F8> :w <CR> :!g++ % && ./a.out <CR>
+
+" Шоткат для запуска Python файлов
+autocmd filetype python map <F8> :w <CR> :!python3.7 % <CR>
