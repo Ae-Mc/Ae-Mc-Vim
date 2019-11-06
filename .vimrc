@@ -40,8 +40,8 @@ filetype indent on
 " =              General Settings
 " ==============================================
 "
-set shiftwidth=2
 set noexpandtab
+set shiftwidth=2
 set tabstop=2
 set softtabstop=2
 tab sball
@@ -54,6 +54,9 @@ let g:snippets_dir = "~/.vim/vim-snippets/snippets"
 "
 "____________=== Настройки python ===___________
 "
+
+" Устанавливаем свою длину табуляции
+autocmd Filetype python set noexpandtab shiftwidth=2 tabstop=2 softtabstop=2
 
 " Отключаем автокомлит по коду
 let g:pymode_rope = 0
