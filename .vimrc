@@ -82,10 +82,12 @@ let g:jedi#popup_select_first = 0
 "———————————=== Interface Settings===———————————
 "
 colorscheme molokai
-set cursorline
-set number
+set cursorline       " Выделить строку, на которой находится курсор
+set number           " Показать номера строк
 set novisualbell
-set hlsearch
+set hlsearch         " Включить подсветку при поиске
+set splitright       " При использовании vsplit новый файл будет открываться справа
+set splitbelow       " При использовании split новый файл будет открываться снизу
 syntax on
 
 " Настройки Vim-Airline
