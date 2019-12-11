@@ -112,3 +112,6 @@ autocmd filetype cpp map <F8> :w <CR> :!g++ % && ./a.out <CR>
 
 " Шоткат для запуска Python файлов
 autocmd filetype python map <F8> :w <CR> :!python3.7 % <CR>
+
+" Для нормального  отображения *.asm файлов на языке nasm
+autocmd filetype asm set ft=nasm
