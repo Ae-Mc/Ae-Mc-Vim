@@ -8,28 +8,29 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 "—————————===Code/project navigation===—————————
-Plugin 'scrooloose/nerdtree'            " project and file navigation
-Plugin 'majutsushi/tagbar'              " Class/module browser
+Plugin 'majutsushi/tagbar'               " Class/module browser
 
 "——————————————————===Other===——————————————————
-Plugin 'vim-airline/vim-airline'              " Lean & mean status/tabline for vim
+Plugin 'vim-airline/vim-airline'         " Lean & mean status/tabline for vim
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'fisadev/FixedTaskList.vim'      " Pending task list
-Plugin 'rosenfeld/conque-term'          " Consoles as buffers
-Plugin 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
+Plugin 'fisadev/FixedTaskList.vim'       " Pending task list
+Plugin 'rosenfeld/conque-term'           " Consoles as buffers
+Plugin 'tpope/vim-surround'              " Parentheses, brackets, quotes, XML tags, and more
+Plugin 'ycm-core/YouCompleteMe'          " Autocomplete plugin
+Plugin 'vim-syntastic/syntastic'         " Check syntax on each save
+Plugin 'kien/ctrlp.vim'                  " Search in current dirrectory with Ctrl-P
+Plugin 'Yggdroot/indentLine'             " Displaying thin vertical lines at each indentation level
 
 "————————————===Snippets support===—————————————
-Plugin 'garbas/vim-snipmate'            " Snippets manager
-Plugin 'MarcWeber/vim-addon-mw-utils'   " dependencies #1
-Plugin 'tomtom/tlib_vim'                " dependencies #2
-Plugin 'honza/vim-snippets'             " snippets repo
+Plugin 'garbas/vim-snipmate'             " Snippets manager
+Plugin 'MarcWeber/vim-addon-mw-utils'    " dependencies #1
+Plugin 'tomtom/tlib_vim'                 " dependencies #2
+Plugin 'honza/vim-snippets'              " snippets repo
 
 "———————————===Languages support===—————————————
 " ——— Python ———
-Plugin 'klen/python-mode'               " Python mode (docs, highlighting, lints, refactor, tun, ipdb and more)
-Plugin 'davidhalter/jedi-vim'           " Jedi-vim autocomplete plugin
-Plugin 'mitsuhiko/vim-jinja'            " Jinja support for vim
-Plugin 'mitsuhiko/vim-python-combined'  " Combined Python 2/3 for Vim
+Plugin 'vim-scripts/indentpython.vim'    " Improved autoindentation for python
+Plugin 'nvie/vim-flake8'                 " PEP 8 checking
 call vundle#end()
 filetype on
 filetype plugin on
@@ -40,6 +41,7 @@ filetype indent on
 " =              General Settings
 " ==============================================
 "
+set wrap
 set noexpandtab
 set shiftwidth=2
 set tabstop=2
@@ -52,31 +54,28 @@ set encoding=utf-8
 let g:snippets_dir = "~/.vim/vim-snippets/snippets"
 
 "
+"___________=== Настройки syntastic===__________
+"
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"
 "____________=== Настройки python ===___________
 "
 
-" Устанавливаем свою длину табуляции
-autocmd Filetype python set noexpandtab shiftwidth=2 tabstop=2 softtabstop=2
+" Подсветка кода
+let python_highlight_all = 1
+" Проврка синтаксиса осуществляется через mypy
+let g:syntastic_python_checkers = ['flake8', 'mypy']
 
-" Отключаем автокомлит по коду
-let g:pymode_rope = 0
-let g:pymode_rope_competion = 0
-let g:pymode_rope_complet_on_dot = 0
-
-" Проверка кода
-let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
-let g:pymode_lint_ignore = "W191"
-let g:pymode_lint_write = 1  " Проверка кода после сохранения
-
-" Подсветка синтаксиса
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
-
-" Disable choose first function/method at autocomplete
-let g:jedi#popup_select_first = 0
+" Устанавливаем свою длину табуляции и подсветка 80 столбца в каждой строке
+autocmd filetype python set expandtab
+      \ shiftwidth=4
+      \ tabstop=4
+      \ softtabstop=4
+      \ colorcolumn=80
 
 "
 "———————————=== Interface Settings===———————————
@@ -101,10 +100,13 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 map <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 0
 
+" Настройки indentLine
+let g:indentLine_char = '┊'
+
 " Настройки NERDTree
-map <F3> :NERDTreeToggle<CR>
+"map <F3> :NERDTreeToggle<CR>
 " Игнорируем файлы с расширениями
-let NERDTreeIgnore=["\~$", "\.pyc$", "\.pyo$", "\.o"]
+"let NERDTreeIgnore=["\~$", "\.pyc$", "\.pyo$", "\.o"]
 
 " Шоткаты для компиляции C/C++ файлов
 autocmd filetype c map <F8> :w <CR> :!gcc % && ./a.out <CR>
