@@ -20,6 +20,7 @@ Plugin 'ycm-core/YouCompleteMe'          " Autocomplete plugin
 Plugin 'vim-syntastic/syntastic'         " Check syntax on each save
 Plugin 'kien/ctrlp.vim'                  " Search in current dirrectory with Ctrl-P
 Plugin 'Yggdroot/indentLine'             " Displaying thin vertical lines at each indentation level
+Plugin 'ludovicchabant/vim-gutentags'    " Auto tags
 
 "————————————===Snippets support===—————————————
 Plugin 'garbas/vim-snipmate'             " Snippets manager
@@ -60,6 +61,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_agregate_errors = 1
 
 "
 "____________=== Настройки python ===___________
