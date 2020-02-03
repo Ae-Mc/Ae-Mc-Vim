@@ -17,21 +17,20 @@ Plugin 'fisadev/FixedTaskList.vim'       " Pending task list
 Plugin 'rosenfeld/conque-term'           " Consoles as buffers
 Plugin 'tpope/vim-surround'              " Parentheses, brackets, quotes, XML tags, and more
 Plugin 'ycm-core/YouCompleteMe'          " Autocomplete plugin
+" Plugin 'metalelf0/supertab'              " Autocomplete on tab
 Plugin 'vim-syntastic/syntastic'         " Check syntax on each save
 Plugin 'kien/ctrlp.vim'                  " Search in current dirrectory with Ctrl-P
 Plugin 'Yggdroot/indentLine'             " Displaying thin vertical lines at each indentation level
 Plugin 'ludovicchabant/vim-gutentags'    " Auto tags
 
 "————————————===Snippets support===—————————————
-Plugin 'garbas/vim-snipmate'             " Snippets manager
-Plugin 'MarcWeber/vim-addon-mw-utils'    " dependencies #1
-Plugin 'tomtom/tlib_vim'                 " dependencies #2
-Plugin 'honza/vim-snippets'              " snippets repo
+" Plugin 'SirVer/ultisnips'                " Snippets engine
+" Plugin 'honza/vim-snippets'              " Snippets are separated from the engine
 
 "———————————===Languages support===—————————————
 " ——— Python ———
 Plugin 'vim-scripts/indentpython.vim'    " Improved autoindentation for python
-Plugin 'nvie/vim-flake8'                 " PEP 8 checking
+Plugin 'mitsuhiko/vim-python-combined'   " PEP8 inspired indentation with extra handling
 call vundle#end()
 filetype on
 filetype plugin on
@@ -69,15 +68,27 @@ let g:syntastic_agregate_errors = 1
 
 " Подсветка кода
 let python_highlight_all = 1
-" Проврка синтаксиса осуществляется через mypy
+" Проврка синтаксиса осуществляется через flake8 и mypy
 let g:syntastic_python_checkers = ['flake8', 'mypy']
-
-" Устанавливаем свою длину табуляции и подсветка 80 столбца в каждой строке
-autocmd filetype python set expandtab
+" Устанавливаем свою длину табуляции и подсветку 80 столбца в каждой строке
+autocmd Filetype python set expandtab
       \ shiftwidth=4
       \ tabstop=4
       \ softtabstop=4
       \ colorcolumn=80
+
+"
+"—————————===YouCompleteMe Settings===——————————
+"
+
+" Отключаем автодополнение YouCompleteMe
+" let g:ycm_filetype_blacklist = { 'python': 1 }
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+" Файлы, из которых считываются настройки python без запроса
+let g:ycm_extra_conf_globlist = ['\.ycm_conf\.py']
+" Переход к определению по <leader>-g
+map <leader>g :YcmCompleter GoToDefinition<CR>
 
 "
 "———————————=== Interface Settings===———————————
@@ -91,10 +102,15 @@ set splitright       " При использовании vsplit новый фа�
 set splitbelow       " При использовании split новый файл будет открываться снизу
 syntax on
 
+" Remember last position in file
+if has("autocmd")
+		au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
 " Настройки Vim-Airline
 set laststatus=2
 let g:airline_theme = 'badwolf'
-" let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
