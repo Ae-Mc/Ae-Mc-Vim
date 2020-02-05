@@ -100,6 +100,7 @@ set novisualbell
 set hlsearch         " Включить подсветку при поиске
 set splitright       " При использовании vsplit новый файл будет открываться справа
 set splitbelow       " При использовании split новый файл будет открываться снизу
+set wildmenu         " :help wildmenu
 syntax on
 
 " Remember last position in file
