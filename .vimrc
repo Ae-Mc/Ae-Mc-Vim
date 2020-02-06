@@ -94,6 +94,8 @@ let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_extra_conf_globlist = ['\.ycm_conf\.py']
 " Переход к определению по <leader>-g
 map <leader>g :YcmCompleter GoToDefinition<CR>
+" Поиск в документации по R
+map K :YcmCompleter GetDoc<CR>
 
 "
 "———————————=== Interface Settings===———————————
