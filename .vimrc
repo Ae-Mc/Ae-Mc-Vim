@@ -22,7 +22,6 @@ Plugin 'vim-syntastic/syntastic'         " Check syntax on each save
 Plugin 'kien/ctrlp.vim'                  " Search in current dirrectory with Ctrl-P
 Plugin 'Yggdroot/indentLine'             " Displaying thin vertical lines at each indentation level
 Plugin 'ludovicchabant/vim-gutentags'    " Auto tags
-Plugin 'sheerun/vim-polyglot'            " Syntax highlighting engine
 
 "————————————===Snippets support===—————————————
 " Plugin 'SirVer/ultisnips'                " Snippets engine
@@ -32,7 +31,6 @@ Plugin 'sheerun/vim-polyglot'            " Syntax highlighting engine
 " ——— Python ———
 Plugin 'vim-scripts/indentpython.vim'    " Improved autoindentation for python
 Plugin 'mitsuhiko/vim-python-combined'   " PEP8 inspired indentation with extra handling
-Plugin 'vim-python/python-syntax'        " Better python highlighting
 call vundle#end()
 filetype on
 filetype plugin on
@@ -107,6 +105,7 @@ set novisualbell
 set hlsearch         " Включить подсветку при поиске
 set splitright       " При использовании vsplit новый файл будет открываться справа
 set splitbelow       " При использовании split новый файл будет открываться снизу
+set showcmd          " Показывать введённые символы команды в правом нижнем углу
 set wildmenu         " :help wildmenu
 syntax on
 
