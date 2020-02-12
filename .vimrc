@@ -46,7 +46,7 @@ set noexpandtab
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
-tab sball
+" tab sball
 set switchbuf=useopen
 set incsearch
 set encoding=utf-8
@@ -123,7 +123,7 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " Настройки TagBar
 map <F4> :TagbarToggle<CR>
-let g:tagbar_autofocus = 0
+let g:tagbar_autofocus = 1
 
 " Настройки indentLine
 let g:indentLine_char = '┊'
