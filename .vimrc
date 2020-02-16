@@ -90,9 +90,11 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 " Файлы, из которых считываются настройки python без запроса
 let g:ycm_extra_conf_globlist = ['\.ycm_conf\.py']
-" Переход к определению по <leader>-g
+" Переход к определению
 map <leader>g :YcmCompleter GoToDefinition<CR>
-" Поиск в документации по R
+" Использования (References)
+map <leader>r :YcmCompleter GoToReferences
+" Поиск в документации по
 map K :YcmCompleter GetDoc<CR>
 
 "
